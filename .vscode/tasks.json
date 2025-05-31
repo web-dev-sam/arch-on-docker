@@ -2,9 +2,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Hi",
+      "label": "Start",
       "type": "shell",
-      "command": "ls"
+      "command": "./run_arch.sh"
     }
   ]
 }

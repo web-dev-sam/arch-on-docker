@@ -6,7 +6,6 @@ echo "Home: $HOME"
 echo "Display: $DISPLAY"
 echo ""
 
-# Function to show menu
 show_menu() {
     echo "Choose what to run:"
     echo "1) Full XFCE Desktop"
@@ -20,19 +19,16 @@ show_menu() {
     echo -n "Enter your choice (1-8): "
 }
 
-# Check if we have a DISPLAY
 if [ -z "$DISPLAY" ]; then
     echo "Warning: DISPLAY not set. Setting to :0"
     export DISPLAY=:0
 fi
 
-# If arguments provided, run them directly
 if [ $# -gt 0 ]; then
     echo "Running command: $@"
     exec "$@"
 fi
 
-# Interactive menu
 while true; do
     show_menu
     read choice
@@ -40,7 +36,7 @@ while true; do
     case $choice in
         1)
             echo "Starting XFCE Desktop..."
-            echo "Note: This will take over your entire X11 display"
+            echo "Note: This will take over your entire X11 display (On Windows run X11 Server before)"
             echo "Close the desktop to return to this menu"
             startxfce4
             ;;
